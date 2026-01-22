@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <script
+	src="https://cdn.jsdelivr.net/gh/xTracky/static@latest/utm-handler.js"
+	data-token="27174641-730a-4d2f-af1e-0f9c2ca6fc92"
+>
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leilão Mercado Livre - Produtos com até 95% OFF</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ml-yellow: #FFE600;
+            --ml-yellow-dark: #D4BF00;
+            --ml-blue: #3483FA;
+            --ml-blue-dark: #2968C8;
+            --ml-green: #00A650;
+            --ml-red: #E32727;
+            --ml-red-dark: #B71C1C;
+            --ml-gray-light: #F5F5F5;
+            --ml-gray: #666666;
+            --ml-gray-dark: #333333;
+            --ml-white: #FFFFFF;
+            --ml-black: #1A1A1A;
+        }
+
+        body {
+            font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #EBEBEB;
+            color: var(--ml-gray-dark);
+            line-height: 1.5;
+        }
+
+        /* Timer Bar */
+        .timer-bar {
+            background: var(--ml-red);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .timer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timer-text {
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .timer-display {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .timer-block {
+            background: rgba(0, 0, 0, 0.25);
+            padding: 6px 10px;
+            border-radius: 4px;
+            min-width: 44px;
+            text-align: center;
+        }
+
+        .timer-number {
+            font-size: 20px;
+            font-weight: 700;
+            display: block;
+            line-height: 1;
+        }
+
+        .timer-label {
+            font-size: 9px;
+            text-transform: uppercase;
+            opacity: 0.85;
+        }
+
+        .timer-separator {
+            font-size: 20px;
+            font-weight: 700;
+            animation: blink 1s step-start infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0.3; }
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--ml-yellow);
+            padding: 10px 0;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            height: 40px;
+            object-fit: contain;
+        }
+
+        /* News Section */
+        .news-section {
+            background: linear-gradient(180deg, var(--ml-yellow) 0%, var(--ml-yellow) 40%, #EBEBEB 40%);
+            padding: 15px 20px 30px;
+        }
+
+        .news-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-badge {
+            background: var(--ml-red);
+            color: white;
+            padding: 6px 16px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+        }
+
+        .news-content {
+            padding: 20px 28px 24px;
+        }
+
+        .news-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--ml-black);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .news-text {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .news-highlight {
+            background: #FFFDE7;
+            border-left: 3px solid var(--ml-yellow);
+            padding: 12px 16px;
+            margin: 14px 0;
+        }
+
+        .news-highlight p {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--ml-gray-dark);
+            font-style: italic;
+        }
+
+        .discount-badge-large {
+            display: inline-block;
+            background: var(--ml-green);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 30px 20px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--ml-black);
+        }
+
+        .products-count {
+            background: var(--ml-blue);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-badge-top {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--ml-blue);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            z-index: 5;
+        }
+
+        .product-image-container {
+            width: 100%;
+            height: 280px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .product-image-container.large {
+            height: 320px;
+        }
+
+        .product-image-container.small {
+            height: 260px;
+        }
+
+        .product-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.2s ease;
+        }
+
+        .product-image.smaller {
+            max-width: 85%;
+            max-height: 85%;
+        }
+
+        .product-info-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            color: var(--ml-gray-dark);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            z-index: 5;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: background 0.2s;
+        }
+
+        .product-info-btn:hover {
+            background: white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .product-info-btn span {
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+        }
+
+        .popup-overlay.active {
+            display: flex;
+        }
+
+        .popup-content {
+            background: white;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .popup-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .popup-header h3 {
+            font-size: 16px;
+            color: var(--ml-black);
+            margin: 0;
+        }
+
+        .popup-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--ml-gray);
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+
+        .popup-close:hover {
+            color: var(--ml-black);
+        }
+
+        .popup-body {
+            padding: 20px;
+        }
+
+        .popup-body p {
+            font-size: 14px;
+            color: var(--ml-gray-dark);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .popup-body ul {
+            margin: 12px 0 0 0;
+            padding-left: 20px;
+        }
+
+        .popup-body li {
+            font-size: 13px;
+            color: var(--ml-gray-dark);
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.03);
+        }
+
+        .product-info {
+            padding: 12px 16px 16px;
+        }
+
+        .product-offer-badge {
+            display: inline-block;
+            background: var(--ml-green);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .product-title {
+            font-size: 14px;
+            color: var(--ml-gray-dark);
+            margin-bottom: 6px;
+            line-height: 1.3;
+            height: 36px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            font-weight: 400;
+        }
+
+        .product-seller {
+            font-size: 12px;
+            color: var(--ml-gray);
+            margin-bottom: 6px;
+        }
+
+        .product-seller span {
+            color: #00a650;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 10px;
+        }
+
+        .product-rating-score {
+            font-size: 12px;
+            color: var(--ml-gray-dark);
+            font-weight: 600;
+        }
+
+        .product-rating-stars {
+            color: var(--ml-blue);
+            font-size: 12px;
+            letter-spacing: -1px;
+        }
+
+        .product-rating-count {
+            font-size: 12px;
+            color: var(--ml-gray);
+        }
+
+        .product-price-old {
+            font-size: 12px;
+            color: var(--ml-gray);
+            text-decoration: line-through;
+            margin-bottom: 0;
+        }
+
+        .product-price {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--ml-black);
+            line-height: 1.2;
+            margin-top: 2px;
+        }
+
+        .product-price sup {
+            font-size: 12px;
+            position: relative;
+            top: -8px;
+            font-weight: 600;
+        }
+
+        .product-discount-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 2px;
+            margin-bottom: 2px;
+        }
+
+        .product-discount {
+            color: var(--ml-green);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .product-pix {
+            font-size: 11px;
+            color: var(--ml-green);
+            font-weight: 600;
+        }
+
+        .product-installments {
+            font-size: 12px;
+            color: var(--ml-gray-dark);
+            margin-bottom: 8px;
+        }
+
+        .product-installments span {
+            color: var(--ml-green);
+        }
+
+        .product-shipping {
+            color: var(--ml-green);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .product-shipping-full {
+            background: var(--ml-green);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .btn-buy {
+            width: 100%;
+            background: var(--ml-blue);
+            color: white;
+            border: none;
+            padding: 14px 16px;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+
+        .btn-buy:hover {
+            background: var(--ml-blue-dark);
+        }
+
+        .stock-warning {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+            color: var(--ml-red);
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .stock-bar {
+            flex: 1;
+            height: 3px;
+            background: #eee;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .stock-bar-fill {
+            height: 100%;
+            background: var(--ml-red);
+            border-radius: 2px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--ml-white);
+            border-top: 1px solid #ddd;
+            padding: 30px 20px 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .footer-column h4 {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--ml-black);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column a {
+            color: var(--ml-gray);
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .footer-column a:hover {
+            color: var(--ml-blue);
+        }
+
+        .footer-bottom {
+            padding-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-logo {
+            height: 28px;
+        }
+
+        .footer-legal {
+            font-size: 11px;
+            color: var(--ml-gray);
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .payment-icon {
+            background: #f5f5f5;
+            padding: 6px 10px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .security-badges {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            padding-top: 15px;
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+            flex-wrap: wrap;
+        }
+
+        .security-badge {
+            font-size: 11px;
+            color: var(--ml-gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .timer-bar {
+                padding: 8px 12px;
+            }
+
+            .timer-content {
+                gap: 8px;
+            }
+
+            .timer-text {
+                font-size: 11px;
+            }
+
+            .timer-block {
+                padding: 5px 8px;
+                min-width: 40px;
+            }
+
+            .timer-number {
+                font-size: 18px;
+            }
+
+            .timer-separator {
+                font-size: 18px;
+            }
+
+            .header {
+                padding: 8px 0;
+            }
+
+            .logo {
+                height: 34px;
+            }
+
+            .news-section {
+                padding: 12px 12px 24px;
+            }
+
+            .news-content {
+                padding: 16px;
+            }
+
+            .news-title {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+
+            .news-text {
+                font-size: 12px;
+                line-height: 1.6;
+            }
+
+            .news-highlight {
+                padding: 10px 12px;
+                margin: 12px 0;
+            }
+
+            .news-highlight p {
+                font-size: 12px;
+            }
+
+            .discount-badge-large {
+                font-size: 12px;
+                padding: 7px 14px;
+            }
+
+            .products-section {
+                padding: 20px 12px 40px;
+            }
+
+            .section-header {
+                margin-bottom: 16px;
+            }
+
+            .section-title {
+                font-size: 16px;
+            }
+
+            .products-count {
+                font-size: 11px;
+                padding: 4px 10px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .product-badge-top {
+                top: 8px;
+                left: 8px;
+                padding: 3px 6px;
+                font-size: 9px;
+            }
+
+            .product-image-container {
+                height: 180px;
+                padding: 12px;
+            }
+
+            .product-image-container.large {
+                height: 210px;
+            }
+
+            .product-image-container.small {
+                height: 160px;
+            }
+
+            .product-info {
+                padding: 10px 12px 14px;
+            }
+
+            .product-offer-badge {
+                font-size: 9px;
+                padding: 2px 6px;
+                margin-bottom: 6px;
+            }
+
+            .product-title {
+                font-size: 12px;
+                height: 32px;
+                margin-bottom: 4px;
+            }
+
+            .product-seller {
+                font-size: 10px;
+                margin-bottom: 4px;
+            }
+
+            .product-rating {
+                margin-bottom: 6px;
+            }
+
+            .product-rating-score,
+            .product-rating-stars,
+            .product-rating-count {
+                font-size: 10px;
+            }
+
+            .product-price-old {
+                font-size: 10px;
+            }
+
+            .product-price {
+                font-size: 22px;
+            }
+
+            .product-price sup {
+                font-size: 11px;
+                top: -8px;
+            }
+
+            .product-discount-row {
+                margin-top: 2px;
+                margin-bottom: 2px;
+            }
+
+            .product-discount {
+                font-size: 12px;
+            }
+
+            .product-pix {
+                font-size: 10px;
+            }
+
+            .product-installments {
+                font-size: 10px;
+                margin-bottom: 6px;
+            }
+
+            .product-shipping {
+                font-size: 11px;
+                margin-bottom: 10px;
+            }
+
+            .product-shipping-full {
+                font-size: 9px;
+                padding: 2px 5px;
+            }
+
+            .btn-buy {
+                padding: 11px 12px;
+                font-size: 13px;
+            }
+
+            .stock-warning {
+                font-size: 9px;
+                margin-top: 8px;
+            }
+
+            .footer {
+                padding: 24px 12px 16px;
+            }
+
+            .footer-top {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                padding-bottom: 16px;
+            }
+
+            .footer-column h4 {
+                font-size: 11px;
+                margin-bottom: 10px;
+            }
+
+            .footer-column a {
+                font-size: 11px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+
+            .footer-logo {
+                height: 24px;
+            }
+
+            .payment-methods {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 6px;
+            }
+
+            .payment-icon {
+                padding: 5px 8px;
+                font-size: 9px;
+            }
+
+            .footer-legal {
+                font-size: 10px;
+            }
+
+            .security-badges {
+                justify-content: center;
+                gap: 12px;
+                padding-top: 12px;
+                margin-top: 12px;
+            }
+
+            .security-badge {
+                font-size: 10px;
+            }
+
+            .product-info-btn {
+                padding: 4px 8px;
+                font-size: 10px;
+            }
+
+            .product-info-btn span {
+                font-size: 11px;
+            }
+
+            .popup-content {
+                max-width: 90%;
+            }
+
+            .popup-header {
+                padding: 14px 16px;
+            }
+
+            .popup-header h3 {
+                font-size: 14px;
+            }
+
+            .popup-body {
+                padding: 16px;
+            }
+
+            .popup-body p {
+                font-size: 13px;
+            }
+
+            .popup-body li {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .product-image-container {
+                height: 220px;
+            }
+
+            .product-title {
+                font-size: 13px;
+                height: 34px;
+            }
+
+            .product-price {
+                font-size: 26px;
+            }
+
+            .btn-buy {
+                padding: 12px 14px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Timer Bar -->
+    <div class="timer-bar">
+        <div class="timer-content">
+            <span class="timer-text">Oferta expira em:</span>
+            <div class="timer-display">
+                <div class="timer-block">
+                    <span class="timer-number" id="hours">05</span>
+                    <span class="timer-label">Horas</span>
+                </div>
+                <span class="timer-separator">:</span>
+                <div class="timer-block">
+                    <span class="timer-number" id="minutes">00</span>
+                    <span class="timer-label">Min</span>
+                </div>
+                <span class="timer-separator">:</span>
+                <div class="timer-block">
+                    <span class="timer-number" id="seconds">00</span>
+                    <span class="timer-label">Seg</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <img src="https://upload.wikimedia.org/wikipedia/pt/0/04/Logotipo_MercadoLivre.png" alt="Mercado Livre" class="logo">
+        </div>
+    </header>
+
+    <!-- News Section -->
+    <section class="news-section">
+        <div class="news-container">
+            <div class="news-badge">Comunicado Oficial</div>
+            <div class="news-content">
+                <h1 class="news-title">
+                    Leilão de Produtos Não Retirados: Eletrônicos Premium com até 95% de Desconto
+                </h1>
+                <p class="news-text">
+                    O Mercado Livre iniciou a liquidação de produtos abandonados nos centros de distribuição. Por determinação judicial, itens não retirados em 90 dias devem ser vendidos imediatamente. iPhones, PlayStations e Notebooks Gamers estão disponíveis por uma fração do valor.
+                </p>
+                <div class="news-highlight">
+                    <p>"Produtos 100% originais, lacrados, com nota fiscal e garantia. Estoque extremamente limitado." - Comunicado Mercado Livre</p>
+                </div>
+                <p class="news-text">
+                    Unidades esgotando rapidamente. Após o término do estoque, os preços voltam ao normal.
+                </p>
+                <div class="discount-badge-large">
+                    ATÉ 95% OFF - ESTOQUE LIMITADO
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="section-header">
+            <h2 class="section-title">Produtos Disponíveis</h2>
+            <span class="products-count">7 produtos</span>
+        </div>
+
+        <div class="products-grid">
+            <!-- Product 1: iPhone 15 Pro Max -->
+            <div class="product-card">
+                <span class="product-badge-top">Leilão</span>
+                <button class="product-info-btn" onclick="openPopup('popup1')"><span>?</span> Informações sobre o produto</button>
+                <div class="product-image-container">
+                    <img src="https://images.kabum.com.br/produtos/fotos/sync_mirakl/993115/xlarge/Apple-Iphone-15-Pro-Max-256-Gb-Tit-nio-Azul_1765994320.jpg" alt="iPhone 15 Pro Max" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="product-offer-badge">Oferta do dia</span>
+                    <h3 class="product-title">iPhone 15 Pro Max 256GB - Titânio Natural - Lacrado</h3>
+                    <p class="product-seller">Por Mercado Livre <span>●</span></p>
+                    <div class="product-rating">
+                        <span class="product-rating-score">4.9</span>
+                        <span class="product-rating-stars">★★★★★</span>
+                        <span class="product-rating-count">(2847)</span>
+                    </div>
+                    <p class="product-price-old">R$ 6.000</p>
+                    <p class="product-price">R$ 118<sup>90</sup></p>
+                    <div class="product-discount-row">
+                        <span class="product-discount">98% OFF</span>
+                        <span class="product-pix">no Pix</span>
+                    </div>
+                    <p class="product-installments">ou em <span>10x R$ 11,89 sem juros</span></p>
+                    <p class="product-shipping">Frete grátis <span class="product-shipping-full">FULL</span></p>
+                    <a href="https://www.pagamentos-seguro.link/checkout/27679882-2be7-413a-b4a1-7e38f0aa3884" class="btn-buy">Comprar agora</a>
+                    <div class="stock-warning">
+                        <span>Restam 6 unidades</span>
+                        <div class="stock-bar"><div class="stock-bar-fill" style="width: 40%;"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2: iPhone 17 -->
+            <div class="product-card">
+                <span class="product-badge-top">Leilão</span>
+                <button class="product-info-btn" onclick="openPopup('popup2')"><span>?</span> Informações sobre o produto</button>
+                <div class="product-image-container">
+                    <img src="https://images7.kabum.com.br/produtos/fotos/925367/iphone-17-apple-256gb-48mp-tela-6-3-super-retina-xdr-preto_1757694916_gg.jpg" alt="iPhone 17" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="product-offer-badge">Oferta do dia</span>
+                    <h3 class="product-title">iPhone 17 256GB - Preto Espacial - Lacrado com NF</h3>
+                    <p class="product-seller">Por Mercado Livre <span>●</span></p>
+                    <div class="product-rating">
+                        <span class="product-rating-score">4.8</span>
+                        <span class="product-rating-stars">★★★★★</span>
+                        <span class="product-rating-count">(1523)</span>
+                    </div>
+                    <p class="product-price-old">R$ 6.499</p>
+                    <p class="product-price">R$ 124<sup>90</sup></p>
+                    <div class="product-discount-row">
+                        <span class="product-discount">98% OFF</span>
+                        <span class="product-pix">no Pix</span>
+                    </div>
+                    <p class="product-installments">ou em <span>10x R$ 12,49 sem juros</span></p>
+                    <p class="product-shipping">Frete grátis <span class="product-shipping-full">FULL</span></p>
+                    <a href="https://www.pagamentos-seguro.link/checkout/0406aa4e-0fa9-4597-a979-e913cfa26166" class="btn-buy">Comprar agora</a>
+                    <div class="stock-warning">
+                        <span>Restam 9 unidades</span>
+                        <div class="stock-bar"><div class="stock-bar-fill" style="width: 60%;"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3: Poco X7 Pro -->
+            <div class="product-card">
+                <span class="product-badge-top">Leilão</span>
+                <button class="product-info-btn" onclick="openPopup('popup3')"><span>?</span> Informações sobre o produto</button>
+                <div class="product-image-container small">
+                    <img src="https://cdn.awsli.com.br/1274/1274469/produto/331569964/1736513495_1736513495-p1kps53oxc.jpg" alt="Poco X7 Pro" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="product-offer-badge">Oferta do dia</span>
+                    <h3 class="product-title">Poco X7 Pro 512GB 5G - Preto - Desbloqueado Lacrado</h3>
+                    <p class="product-seller">Por Mercado Livre <span>●</span></p>
+                    <div class="product-rating">
+                        <span class="product-rating-score">4.7</span>
+                        <span class="product-rating-stars">★★★★★</span>
+                        <span class="product-rating-count">(987)</span>
+                    </div>
+                    <p class="product-price-old">R$ 3.499</p>
+                    <p class="product-price">R$ 89<sup>90</sup></p>
+                    <div class="product-discount-row">
+                        <span class="product-discount">97% OFF</span>
+                        <span class="product-pix">no Pix</span>
+                    </div>
+                    <p class="product-installments">ou em <span>10x R$ 8,99 sem juros</span></p>
+                    <p class="product-shipping">Frete grátis <span class="product-shipping-full">FULL</span></p>
+                    <a href="https://www.pagamentos-seguro.link/checkout/384275db-9bf7-4e3f-8592-bea7abe0f9d0" class="btn-buy">Comprar agora</a>
+                    <div class="stock-warning">
+                        <span>Restam 12 unidades</span>
+                        <div class="stock-bar"><div class="stock-bar-fill" style="width: 80%;"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4: PlayStation 5 Slim -->
+            <div class="product-card">
+                <span class="product-badge-top">Leilão</span>
+                <button class="product-info-btn" onclick="openPopup('popup4')"><span>?</span> Informações sobre o produto</button>
+                <div class="product-image-container">
+                    <img src="https://mirandacomputacao.jetassets.com.br/produto/multifotos/hd/48879-principal.png" alt="PlayStation 5 Slim" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="product-offer-badge">Oferta do dia</span>
+                    <h3 class="product-title">PlayStation 5 Slim Digital Edition - Branco - Lacrado</h3>
+                    <p class="product-seller">Por Mercado Livre <span>●</span></p>
+                    <div class="product-rating">
+                        <span class="product-rating-score">4.9</span>
+                        <span class="product-rating-stars">★★★★★</span>
+                        <span class="product-rating-count">(3412)</span>
+                    </div>
+                    <p class="product-price-old">R$ 3.799</p>
+                    <p class="product-price">R$ 97<sup>90</sup></p>
+                    <div class="product-discount-row">
+                        <span class="product-discount">97% OFF</span>
+                        <span class="product-pix">no Pix</span>
+                    </div>
+                    <p class="product-installments">ou em <span>10x R$ 9,79 sem juros</span></p>
+                    <p class="product-shipping">Frete grátis <span class="product-shipping-full">FULL</span></p>
+                    <a href="https://www.pagamentos-seguro.link/checkout/ca971edc-c0f3-4766-84ca-2ab58af0e4e5" class="btn-buy">Comprar agora</a>
+                    <div class="stock-warning">
+                        <span>Restam 4 unidades</span>
+                        <div class="stock-bar"><div class="stock-bar-fill" style="width: 27%;"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5: Notebook Lenovo LOQ -->
+            <div class="product-card">
+                <span class="product-badge-top">Leilão</span>
+                <button class="product-info-btn" onclick="openPopup('popup5')"><span>?</span> Informações sobre o produto</button>
+                <div class="product-image-container">
+                    <img src="https://fujiokadistribuidor.vteximg.com.br/arquivos/ids/394349" alt="Notebook Lenovo LOQ" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="product-offer-badge">Oferta do dia</span>
+                    <h3 class="product-title">Notebook Gamer Lenovo LOQ i5 RTX 3050 16GB 512GB SSD</h3>
+                    <p class="product-seller">Por Mercado Livre <span>●</span></p>
+                    <div class="product-rating">
+                        <span class="product-rating-score">4.8</span>
+                        <span class="product-rating-stars">★★★★★</span>
+                        <span class="product-rating-count">(756)</span>
+                    </div>
+                    <p class="product-price-old">R$ 5.299</p>
+                    <p class="product-price">R$ 109<sup>90</sup></p>
+                    <div class="product-discount-row">
+                        <span class="product-discount">98% OFF</span>
+                        <span class="product-pix">no Pix</span>
+                    </div>
+                    <p class="product-installments">ou em <span>10x R$ 10,99 sem juros</span></p>
+                    <p class="product-shipping">Frete grátis <span class="product-shipping-full">FULL</span></p>
+                    <a href="https://www.pagamentos-seguro.link/checkout/15a81fdf-4758-4fce-97b9-628766390dfe" class="btn-buy">Comprar agora</a>
+                    <div class="stock-warning">
+                        <span>Restam 7 unidades</span>
+                        <div class="stock-bar"><div class="stock-bar-fill" style="width: 47%;"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6: Notebook Acer Nitro V15 -->
+            <div class="product-card">
+                <span class="product-badge-top">Leilão</span>
+                <button class="product-info-btn" onclick="openPopup('popup6')"><span>?</span> Informações sobre o produto</button>
+                <div class="product-image-container">
+                    <img src="https://images.kabum.com.br/produtos/fotos/sync_mirakl/590662/xlarge/Notebook-Gamer-Acer-Nitro-V-Intel-Core-i5-13-Gen-8GB-SSD-512GB-RTX4050-Tela-15-6-Full-HD-Windows-11-Home-Anv15-51-54dl_1755786293.jpg" alt="Notebook Acer Nitro V15" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="product-offer-badge">Oferta do dia</span>
+                    <h3 class="product-title">Notebook Acer Nitro V15 i7 RTX 4060 32GB 1TB SSD 144Hz</h3>
+                    <p class="product-seller">Por Mercado Livre <span>●</span></p>
+                    <div class="product-rating">
+                        <span class="product-rating-score">4.9</span>
+                        <span class="product-rating-stars">★★★★★</span>
+                        <span class="product-rating-count">(1234)</span>
+                    </div>
+                    <p class="product-price-old">R$ 8.499</p>
+                    <p class="product-price">R$ 114<sup>90</sup></p>
+                    <div class="product-discount-row">
+                        <span class="product-discount">99% OFF</span>
+                        <span class="product-pix">no Pix</span>
+                    </div>
+                    <p class="product-installments">ou em <span>10x R$ 11,49 sem juros</span></p>
+                    <p class="product-shipping">Frete grátis <span class="product-shipping-full">FULL</span></p>
+                    <a href="https://www.pagamentos-seguro.link/checkout/04bc361a-ddf3-4f3a-8390-11913503b1d0" class="btn-buy">Comprar agora</a>
+                    <div class="stock-warning">
+                        <span>Restam 5 unidades</span>
+                        <div class="stock-bar"><div class="stock-bar-fill" style="width: 33%;"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 7: JBL Boombox 3 -->
+            <div class="product-card">
+                <span class="product-badge-top">Leilão</span>
+                <button class="product-info-btn" onclick="openPopup('popup7')"><span>?</span> Informações sobre o produto</button>
+                <div class="product-image-container">
+                    <img src="https://images.tcdn.com.br/img/img_prod/1140357/caixa_de_som_portatil_jbl_boombox_3_wi_fi_bluetooth_preto_jblbb3wifiblkbr_4902_1_44ec36274e24e5e892fc573dc2ff3596.jpg" alt="JBL Boombox 3" class="product-image smaller">
+                </div>
+                <div class="product-info">
+                    <span class="product-offer-badge">Oferta do dia</span>
+                    <h3 class="product-title">JBL Boombox 3 Caixa de Som Bluetooth Portátil à Prova D'água</h3>
+                    <p class="product-seller">Por Mercado Livre <span>●</span></p>
+                    <div class="product-rating">
+                        <span class="product-rating-score">4.9</span>
+                        <span class="product-rating-stars">★★★★★</span>
+                        <span class="product-rating-count">(2156)</span>
+                    </div>
+                    <p class="product-price-old">R$ 2.899</p>
+                    <p class="product-price">R$ 94<sup>90</sup></p>
+                    <div class="product-discount-row">
+                        <span class="product-discount">97% OFF</span>
+                        <span class="product-pix">no Pix</span>
+                    </div>
+                    <p class="product-installments">ou em <span>10x R$ 9,49 sem juros</span></p>
+                    <p class="product-shipping">Frete grátis <span class="product-shipping-full">FULL</span></p>
+                    <a href="https://www.pagamentos-seguro.link/checkout/04e8066d-2055-403d-ae73-efbc5538db3d" class="btn-buy">Comprar agora</a>
+                    <div class="stock-warning">
+                        <span>Restam 8 unidades</span>
+                        <div class="stock-bar"><div class="stock-bar-fill" style="width: 53%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-column">
+                    <h4>Sobre</h4>
+                    <ul>
+                        <li><a href="#">Mercado Livre</a></li>
+                        <li><a href="#">Investor relations</a></li>
+                        <li><a href="#">Tendências</a></li>
+                        <li><a href="#">Sustentabilidade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Venda</h4>
+                    <ul>
+                        <li><a href="#">Vender produtos</a></li>
+                        <li><a href="#">Mercado Shops</a></li>
+                        <li><a href="#">Mercado Envios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Ajuda</h4>
+                    <ul>
+                        <li><a href="#">Central de ajuda</a></li>
+                        <li><a href="#">Compra segura</a></li>
+                        <li><a href="#">Devoluções</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Redes</h4>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <img src="https://upload.wikimedia.org/wikipedia/pt/0/04/Logotipo_MercadoLivre.png" alt="Mercado Livre" class="footer-logo">
+                <div class="payment-methods">
+                    <span class="payment-icon">PIX</span>
+                    <span class="payment-icon">VISA</span>
+                    <span class="payment-icon">MASTER</span>
+                    <span class="payment-icon">ELO</span>
+                    <span class="payment-icon">BOLETO</span>
+                </div>
+                <p class="footer-legal">© 2024 Mercado Livre. Todos os direitos reservados.</p>
+            </div>
+            <div class="security-badges">
+                <span class="security-badge">Compra 100% Segura</span>
+                <span class="security-badge">Produtos Originais</span>
+                <span class="security-badge">Entrega Garantida</span>
+                <span class="security-badge">Devolução Grátis</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Popups -->
+    <div class="popup-overlay" id="popup1">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3>iPhone 15 Pro Max 256GB</h3>
+                <button class="popup-close" onclick="closePopup('popup1')">×</button>
+            </div>
+            <div class="popup-body">
+                <p>O iPhone 15 Pro Max é o smartphone mais avançado da Apple, com corpo em titânio e o poderoso chip A17 Pro.</p>
+                <ul>
+                    <li>Tela Super Retina XDR de 6,7 polegadas</li>
+                    <li>Chip A17 Pro com GPU de 6 núcleos</li>
+                    <li>Sistema de câmera Pro de 48MP</li>
+                    <li>Zoom óptico de 5x</li>
+                    <li>Botão de Ação personalizável</li>
+                    <li>USB-C com USB 3</li>
+                    <li>Até 29 horas de reprodução de vídeo</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-overlay" id="popup2">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3>iPhone 17 256GB</h3>
+                <button class="popup-close" onclick="closePopup('popup2')">×</button>
+            </div>
+            <div class="popup-body">
+                <p>O iPhone 17 representa a nova geração de smartphones Apple, com tecnologia de ponta e design renovado.</p>
+                <ul>
+                    <li>Tela Super Retina XDR de 6,3 polegadas</li>
+                    <li>Chip A19 de última geração</li>
+                    <li>Sistema de câmera de 48MP aprimorado</li>
+                    <li>Face ID mais rápido</li>
+                    <li>5G avançado</li>
+                    <li>Bateria com duração estendida</li>
+                    <li>iOS 19 com novos recursos de IA</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-overlay" id="popup3">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3>Poco X7 Pro 512GB 5G</h3>
+                <button class="popup-close" onclick="closePopup('popup3')">×</button>
+            </div>
+            <div class="popup-body">
+                <p>O Poco X7 Pro oferece desempenho flagship por uma fração do preço, ideal para gamers e usuários exigentes.</p>
+                <ul>
+                    <li>Tela AMOLED de 6,67" com 120Hz</li>
+                    <li>Processador MediaTek Dimensity 8400</li>
+                    <li>512GB de armazenamento</li>
+                    <li>Câmera principal de 50MP</li>
+                    <li>Bateria de 6000mAh</li>
+                    <li>Carregamento rápido de 90W</li>
+                    <li>Conectividade 5G</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-overlay" id="popup4">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3>PlayStation 5 Slim Digital Edition</h3>
+                <button class="popup-close" onclick="closePopup('popup4')">×</button>
+            </div>
+            <div class="popup-body">
+                <p>O PS5 Slim Digital é a versão mais compacta do console da Sony, perfeito para jogos digitais.</p>
+                <ul>
+                    <li>Design 30% mais compacto que o PS5 original</li>
+                    <li>SSD de 1TB ultra-rápido</li>
+                    <li>Suporte a jogos em 4K até 120fps</li>
+                    <li>Ray Tracing em tempo real</li>
+                    <li>Áudio 3D Tempest</li>
+                    <li>Controle DualSense com feedback háptico</li>
+                    <li>Retrocompatível com jogos PS4</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-overlay" id="popup5">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3>Notebook Gamer Lenovo LOQ</h3>
+                <button class="popup-close" onclick="closePopup('popup5')">×</button>
+            </div>
+            <div class="popup-body">
+                <p>O Lenovo LOQ é um notebook gamer de entrada com excelente custo-benefício para jogos e produtividade.</p>
+                <ul>
+                    <li>Processador Intel Core i5 de 13ª geração</li>
+                    <li>Placa de vídeo NVIDIA RTX 3050 6GB</li>
+                    <li>16GB de memória RAM DDR5</li>
+                    <li>SSD de 512GB NVMe</li>
+                    <li>Tela de 15,6" Full HD 144Hz</li>
+                    <li>Teclado retroiluminado</li>
+                    <li>Sistema de refrigeração avançado</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-overlay" id="popup6">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3>Notebook Acer Nitro V15</h3>
+                <button class="popup-close" onclick="closePopup('popup6')">×</button>
+            </div>
+            <div class="popup-body">
+                <p>O Acer Nitro V15 é um notebook gamer de alto desempenho para rodar os jogos mais exigentes.</p>
+                <ul>
+                    <li>Processador Intel Core i7 de 13ª geração</li>
+                    <li>Placa de vídeo NVIDIA RTX 4060 8GB</li>
+                    <li>32GB de memória RAM DDR5</li>
+                    <li>SSD de 1TB NVMe</li>
+                    <li>Tela de 15,6" Full HD 144Hz</li>
+                    <li>Teclado RGB de 4 zonas</li>
+                    <li>Wi-Fi 6E e Bluetooth 5.2</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-overlay" id="popup7">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3>JBL Boombox 3</h3>
+                <button class="popup-close" onclick="closePopup('popup7')">×</button>
+            </div>
+            <div class="popup-body">
+                <p>A JBL Boombox 3 é a caixa de som portátil mais potente da JBL, com som imersivo e bateria de longa duração.</p>
+                <ul>
+                    <li>Potência de 180W RMS</li>
+                    <li>Bateria de até 24 horas</li>
+                    <li>Certificação IP67 (à prova d'água e poeira)</li>
+                    <li>Bluetooth 5.3</li>
+                    <li>JBL Original Pro Sound</li>
+                    <li>Função PartyBoost para conectar várias caixas</li>
+                    <li>Entrada auxiliar e USB para carregamento</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Timer Script -->
+    <script>
+        let totalSeconds = 5 * 60 * 60;
+
+        function updateTimer() {
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+            if (totalSeconds > 0) {
+                totalSeconds--;
+            }
+        }
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
+
+        function openPopup(popupId) {
+            document.getElementById(popupId).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePopup(popupId) {
+            document.getElementById(popupId).classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Fechar popup ao clicar fora
+        document.querySelectorAll('.popup-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

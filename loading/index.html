@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <script
+	src="https://cdn.jsdelivr.net/gh/xTracky/static@latest/utm-handler.js"
+	data-token="27174641-730a-4d2f-af1e-0f9c2ca6fc92"
+>
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Livre - Carregando Ofertas Exclusivas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ml-yellow: #FFE600;
+            --ml-yellow-dark: #E6CF00;
+            --ml-blue: #3483FA;
+            --ml-gray-dark: #333333;
+            --ml-black: #1A1A1A;
+        }
+
+        body {
+            font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--ml-yellow);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .pressel-container {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .logo-container {
+            margin-bottom: 50px;
+            animation: logoEntrance 0.8s ease-out forwards;
+        }
+
+        @keyframes logoEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .logo {
+            height: 60px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        }
+
+        .text-container {
+            margin-bottom: 50px;
+            opacity: 0;
+            animation: textEntrance 0.6s ease-out 0.3s forwards;
+        }
+
+        @keyframes textEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--ml-black);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .sub-text {
+            font-size: 14px;
+            color: var(--ml-gray-dark);
+            line-height: 1.5;
+        }
+
+        .loading-container {
+            opacity: 0;
+            animation: loadingEntrance 0.5s ease-out 0.6s forwards;
+        }
+
+        @keyframes loadingEntrance {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .loading-bar-bg {
+            width: 100%;
+            height: 8px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .loading-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--ml-blue) 0%, #5a9cfc 50%, var(--ml-blue) 100%);
+            background-size: 200% 100%;
+            border-radius: 10px;
+            animation: loadingProgress 4s ease-in-out forwards, shimmer 1.5s ease-in-out infinite;
+        }
+
+        @keyframes loadingProgress {
+            0% {
+                width: 0%;
+            }
+            10% {
+                width: 15%;
+            }
+            30% {
+                width: 35%;
+            }
+            50% {
+                width: 55%;
+            }
+            70% {
+                width: 75%;
+            }
+            90% {
+                width: 92%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        .loading-text {
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--ml-gray-dark);
+            opacity: 0;
+            animation: textEntrance 0.5s ease-out 0.8s forwards;
+        }
+
+        .loading-dots {
+            display: inline-block;
+        }
+
+        .loading-dots span {
+            animation: dotPulse 1.4s ease-in-out infinite;
+            opacity: 0;
+        }
+
+        .loading-dots span:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .loading-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .loading-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes dotPulse {
+            0%, 80%, 100% {
+                opacity: 0;
+            }
+            40% {
+                opacity: 1;
+            }
+        }
+
+        .badge-container {
+            margin-top: 40px;
+            opacity: 0;
+            animation: badgeEntrance 0.5s ease-out 1s forwards;
+        }
+
+        @keyframes badgeEntrance {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--ml-gray-dark);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .badge-icon {
+            color: #00A650;
+            margin-right: 6px;
+        }
+
+        .pulse-ring {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            animation: pulseRing 2s ease-out infinite;
+            pointer-events: none;
+        }
+
+        .pulse-ring:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .pulse-ring:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        @keyframes pulseRing {
+            0% {
+                width: 100px;
+                height: 100px;
+                opacity: 0.8;
+            }
+            100% {
+                width: 400px;
+                height: 400px;
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                height: 50px;
+            }
+
+            .main-text {
+                font-size: 18px;
+            }
+
+            .sub-text {
+                font-size: 13px;
+            }
+
+            .pressel-container {
+                padding: 30px 20px;
+            }
+
+            .logo-container {
+                margin-bottom: 40px;
+            }
+
+            .text-container {
+                margin-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pulse-ring"></div>
+    <div class="pulse-ring"></div>
+    <div class="pulse-ring"></div>
+
+    <div class="pressel-container">
+        <div class="logo-container">
+            <img src="https://upload.wikimedia.org/wikipedia/pt/0/04/Logotipo_MercadoLivre.png" alt="Mercado Livre" class="logo">
+        </div>
+
+        <div class="text-container">
+            <h1 class="main-text">Preparando ofertas exclusivas do Leilão</h1>
+            <p class="sub-text">Produtos de leilão com até 95% de desconto estão sendo carregados para você</p>
+        </div>
+
+        <div class="loading-container">
+            <div class="loading-bar-bg">
+                <div class="loading-bar-fill"></div>
+            </div>
+            <p class="loading-text">Carregando produtos<span class="loading-dots"><span>.</span><span>.</span><span>.</span></span></p>
+        </div>
+
+        <div class="badge-container">
+            <div class="badge">
+                <span class="badge-icon">✓</span>Acesso liberado - Estoque limitado
+            </div>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            window.location.href = '/produtos';
+        }, 4000);
+    </script>
+</body>
+</html>
