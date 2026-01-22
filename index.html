@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <script
+	src="https://cdn.jsdelivr.net/gh/xTracky/static@latest/utm-handler.js"
+	data-token="27174641-730a-4d2f-af1e-0f9c2ca6fc92"
+>
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega Promoções Mercado Livre - Leilão de Estoque</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --header-red: #C4170C;
+            --text-dark: #1a1a1a;
+            --text-body: #333333;
+            --text-muted: #757575;
+            --bg-page: #ffffff;
+            --bg-white: #ffffff;
+            --green-cta: #00a650;
+            --green-cta-hover: #008c44;
+            --border-light: #e0e0e0;
+            --link-blue: #0057a3;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            line-height: 1.6;
+            font-size: 18px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header - Flat, sem relevo */
+        header {
+            background: var(--header-red);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background: #1a1a1a;
+            padding: 8px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .header-main {
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            height: 60px;
+            border-radius: 10px;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px 16px 40px;
+            background: var(--bg-white);
+        }
+
+        /* Breadcrumb - removido no estilo G1 mobile */
+        .breadcrumb {
+            display: none;
+        }
+
+        /* Category Tag - removido */
+        .category-tag {
+            display: none;
+        }
+
+        /* Headline - Estilo G1 */
+        .headline {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.25;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        /* Subtitle - Estilo G1 */
+        .subtitle {
+            font-size: 18px;
+            color: var(--text-body);
+            font-weight: 400;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        /* Meta Info - Estilo G1 */
+        .meta-info {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .meta-info .source {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .meta-info .location {
+            color: var(--link-blue);
+        }
+
+        .meta-info .date {
+            display: block;
+            margin-top: 4px;
+            font-size: 13px;
+        }
+
+        /* Article Content */
+        .article-content {
+            background: var(--bg-white);
+            border-radius: 0;
+        }
+
+        /* Figure with caption - Estilo G1 */
+        .article-figure {
+            margin: 0 -16px 20px -16px;
+            position: relative;
+        }
+
+        .article-figure img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .figure-caption {
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 14px;
+            padding: 10px 16px;
+            position: relative;
+            bottom: auto;
+            left: auto;
+            right: auto;
+            line-height: 1.4;
+        }
+
+        .figure-caption .photo-credit {
+            color: var(--text-muted);
+        }
+
+        .figure-date {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 10px;
+            border-radius: 2px;
+        }
+
+        /* Article Text - Estilo G1 */
+        .article-text {
+            font-size: 18px;
+            color: var(--text-body);
+            margin-bottom: 24px;
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        .article-text.lead {
+            font-size: 18px;
+            color: var(--text-body);
+        }
+
+        .article-text strong {
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        /* Links no estilo G1 */
+        .article-text a,
+        .inline-link {
+            color: var(--link-blue);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .article-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Highlight Box - Estilo G1 */
+        .highlight-box {
+            background: #fef9e7;
+            border-left: 4px solid #f4b400;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .highlight-box.urgent {
+            background: #fef2f2;
+            border-left-color: var(--header-red);
+        }
+
+        .highlight-box p {
+            margin: 0;
+        }
+
+        /* Quote - Estilo G1 */
+        .article-quote {
+            border-left: 4px solid #f4b400;
+            padding: 16px 20px;
+            margin: 24px 0;
+            background: #fef9e7;
+            font-style: normal;
+            font-size: 18px;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        .article-quote cite {
+            display: block;
+            margin-top: 12px;
+            font-style: normal;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* CTA Section - Limpo */
+        .cta-section {
+            background: #f5f5f5;
+            border: none;
+            border-radius: 0;
+            padding: 24px 20px;
+            margin: 28px 0;
+            text-align: center;
+        }
+
+        .cta-section h3 {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            background: var(--green-cta);
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 16px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            animation: pulse 2s infinite;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover, .cta-button:active {
+            background: var(--green-cta-hover);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 2px 8px rgba(0, 166, 80, 0.3);
+            }
+            50% {
+                box-shadow: 0 2px 16px rgba(0, 166, 80, 0.5), 0 0 0 6px rgba(0, 166, 80, 0.1);
+            }
+        }
+
+        /* Section Divider */
+        .section-divider {
+            height: 1px;
+            background: var(--border-light);
+            margin: 28px 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            margin-top: 0;
+        }
+
+        .footer-main {
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .footer-section h4 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section a {
+            color: #999;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            background: #111;
+            padding: 20px 15px;
+            text-align: center;
+            font-size: 11px;
+            color: #666;
+        }
+
+        .footer-bottom p {
+            margin: 0 0 8px;
+        }
+
+        /* Media Query para telas maiores */
+        @media (min-width: 600px) {
+            main {
+                max-width: 600px;
+                padding: 25px 20px 50px;
+            }
+
+            .headline {
+                font-size: 32px;
+            }
+
+            .article-figure {
+                margin: 0 0 25px 0;
+            }
+
+            .cta-button {
+                width: auto;
+                display: inline-block;
+                padding: 18px 50px;
+            }
+
+            .footer-main {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <span id="current-datetime"></span>
+        </div>
+        <div class="header-main">
+            <img src="https://play-lh.googleusercontent.com/jFIwbIofKnamJhU4l5eOeRvf7Zy-VF7avOsUcTmsji9xtKR_Dc6CT7hR1siQkHHBX5w" alt="Logo" class="logo">
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="#">Início</a>
+            <span>›</span>
+            <a href="#">Economia</a>
+            <span>›</span>
+            <a href="#">E-commerce</a>
+        </div>
+
+        <!-- Category -->
+        <span class="category-tag">Economia</span>
+
+        <!-- Headline -->
+        <h1 class="headline">URGENTE: Mercado Livre está leiloando eletrônicos esquecidos no depósito (iPhone 15 Pro Max, PS5 Slim e Notebooks Gamer entre outros itens)</h1>
+
+        <!-- Subtitle -->
+        <p class="subtitle">Produtos devolvidos, de mostruário e pedidos não retirados estão sendo vendidos por até 90% menos. Lote inclui Lenovo LOQ, Acer Nitro V15, iPhone 17 e Poco X7 Pro.</p>
+
+        <!-- Meta Info - Estilo G1 -->
+        <div class="meta-info">
+            <span class="source">GloboNews</span> — <span class="location">São Paulo</span>
+            <span class="date" id="article-date"></span>
+        </div>
+
+        <!-- Article -->
+        <article class="article-content">
+            
+            <!-- Featured Image -->
+            <figure class="article-figure">
+                <span class="figure-date" id="image-date"></span>
+                <img src="https://mercadoeconsumo.com.br/wp-content/uploads/2024/04/handler-17.jpg" alt="Funcionário do Mercado Livre em centro de distribuição">
+                <figcaption class="figure-caption">
+                    Setor de "itens esquecidos" do Mercado Livre: produtos que ninguém buscou vão direto pro leilão — <span class="photo-credit">Foto: Divulgação</span>
+                </figcaption>
+            </figure>
+<div class="cta-section">
+                
+                <a href="/loading" class="cta-button">ADQUIRIR PRODUTOS DO LEILÃO</a>
+            </div>
+            <p class="article-text lead">
+                Você sabia que quando alguém devolve um produto ou não retira um pedido, ele fica PARADO no depósito do <span class="inline-link">Mercado Livre</span>? Pois é. E sabe o que acontece com esses produtos depois de um tempo? LEILÃO. E é exatamente isso que está rolando AGORA.
+            </p>
+
+            <p class="article-text">
+                A promoção é por tempo limitado segundo a empresa, onde incluem produtos como: <span class="inline-link">iPhone 15 Pro Max</span>. <span class="inline-link">iPhone 17</span>. <span class="inline-link">Poco X7 Pro 512GB 5G</span><span class="inline-link">PlayStation 5 Slim Digital</span>. <span class="inline-link">Notebook Gamer Lenovo LOQ</span>. <span class="inline-link">Acer Nitro V15</span>. Isso é REAL. Isso está acontecendo AGORA.
+            </p>
+
+            <p class="article-text">
+                O motivo é simples: legalmente, o Mercado Livre não pode ficar com esses produtos. Depois de 90 dias parado no depósito, PRECISA ir pra leilão. Esses produtos necessitam ser vendidos para fins fiscais, então a empresa baixa seu valor com descontos altos.
+            </p>
+
+            <blockquote class="article-quote">
+                "A promoção que o Brasileiro quer, peguei um PS5 Slim Digital com 88% de deconto. Meu irmão pagou R$3.800 na Amazon mês passado. Chegou em 2 dias, lacrado na caixa, com nota fiscal. Já voltei e peguei um Poco X7 Pro pra minha mãe. Isso aqui é CRIME de tão barato."
+                <cite>— Lucas M., São Paulo (print do pedido nos comentários)</cite>
+            </blockquote>
+
+            <div class="highlight-box urgent">
+                <p>🚨 URGENTE: Os lotes de iPhone 15 Pro Max, iPhone 17, PS5 Slim e notebooks gamer entraram HOJE no sistema. Isso significa que AGORA é a melhor hora — antes dos canais de desconto descobrirem e espalharem. Ontem o lote de Lenovo LOQ durou 14 minutos. CATORZE. Não espera viralizar pra agir.</p>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h3>VEJA AQUI OS PRODUTOS ESQUECIDOS DÍSPONIVEIS</h3>
+                <p>iPhone 15 Pro Max, iPhone 17, PS5 Slim, Lenovo LOQ, Acer Nitro V15, Poco X7 Pro</p>
+                <a href="/loading" class="cta-button">GARANTA OS PRODUTOS AGORA</a>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- Second Image Section -->
+            <figure class="article-figure">
+                <span class="figure-date" id="image-date-2"></span>
+                <img src="https://neofeed.com.br/wp-content/uploads/2023/01/Mercado-Livre-CD-Cajamar-1.jpg" alt="Centro de Distribuição Mercado Livre em Cajamar">
+                <figcaption class="figure-caption">
+                    Centro de Distribuição Cajamar: milhares de caixas com produtos devolvidos aguardando leilão — <span class="photo-credit">Foto: Divulgação</span>
+                </figcaption>
+            </figure>
+
+            <p class="article-text">
+                Funciona assim: o <span class="inline-link">Centro de Distribuição de Cajamar</span> recebe MILHÕES de devoluções por mês. Produto que o cara se arrependeu. Produto que chegou e ninguém tava em casa. Produto de mostruário que saiu de linha. Tudo isso vai pra um setor chamado "itens esquecidos" — e de lá, vai direto pro leilão.
+            </p>
+
+            <p class="article-text">
+                Olha só o que tá disponível AGORA:
+            </p>
+            
+            <p class="article-text">
+                📱 <span class="inline-link">iPhone 15 Pro Max</span> </strong><br>
+                📱 <span class="inline-link">iPhone 17</span> </strong><br>
+                📱 <span class="inline-link">Poco X7 Pro 512GB 5G</span> <strong><br>
+                🎮 <span class="inline-link">PlayStation 5 Slim Digital</span> </strong><br>
+                💻 <span class="inline-link">Notebook Gamer Lenovo LOQ</span> </strong><br>
+                💻 <span class="inline-link">Notebook Acer Nitro V15</span> </strong>
+            </p>
+            
+            <p class="article-text">
+                Leu certo. <strong>PlayStation 5 Slim</strong> por menos que um celular intermediário. <strong>iPhone 15 Pro Max</strong> pelo preço de um Xiaomi básico. <strong>Notebook Gamer</strong> pelo preço de um Chromebook. Parece ERRO, mas é só produto esquecido que precisa sair.
+            </p>
+
+            <div class="section-divider"></div>
+
+            <!-- Third Image Section -->
+            <figure class="article-figure">
+                <span class="figure-date" id="image-date-3"></span>
+                <img src="https://eucontador.com.br/wp-content/uploads/2021/05/Mercado-Livre-3-1.jpg" alt="Logística Mercado Livre">
+                <figcaption class="figure-caption">
+                    Logística FULL: quem compra no leilão recebe em até 24h com frete grátis — <span class="photo-credit">Foto: Divulgação</span>
+                </figcaption>
+            </figure>
+
+            <p class="article-text">
+                "Mas esses produtos têm defeito?" — NÃO. Essa é a parte boa. A maioria foi devolvido por arrependimento ou porque o cara simplesmente não foi buscar nos Correios. Chega LACRADO, na caixa, com manual, carregador, tudo. Alguns são de mostruário — aí vem com caixa aberta, mas o produto tá ZERADO.
+            </p>
+
+            <p class="article-text">
+                Todos vêm com nota fiscal e garantia. Entrega em 24-48h pelo FULL do Mercado Livre — o mais rápido do Brasil. Se vier com qualquer problema, você devolve e recebe 100% do dinheiro. Mas te adianto: em 47.000 vendas desse leilão, a taxa de devolução foi de 0,3%. Ou seja: NINGUÉM devolve porque tá tudo perfeito.
+            </p>
+
+            <div class="highlight-box">
+                <p>💰 ESTRATÉGIA NINJA: Os espertinhos estão comprando iPhone 15 Pro Max no leilão e revendendo por R$7.000 no OLX. Lucro de R$4.110 por unidade. O PS5 Slim revende fácil por R$3.000. Você pode usar ou pode revender. Nos dois casos, você GANHA.</p>
+            </div>
+
+            <p class="article-text">
+                Vou te falar uma coisa que talvez você não queira ouvir: esse leilão NÃO VAI DURAR. Semana passada, um influencer postou sobre isso e o site CAIU de tanto acesso. Eles não querem divulgação porque não dão conta. Quando esse link viralizar — e VAI viralizar — acabou. Não vai sobrar nem capinha de celular.
+            </p>
+
+            <p class="article-text">
+                Segundo fontes das redes sociais, o slogan é: "Você tem duas opções: 1) Clicar agora, ver os preços, e garantir seu iPhone 15 Pro Max, PS5 Slim ou Lenovo LOQ por preço de PIADA. Ou 2) Ignorar, e daqui a 3 dias ver todo mundo ostentando produto novo enquanto você paga R$10.000 parcelado em 24x na Magazine Luiza. A escolha é sua."
+            </p>
+
+            <!-- Second CTA Section -->
+            <div class="cta-section">
+                <h3>LOTE DE IPHONE, PS5 E NOTEBOOKS DISPONÍVEL</h3>
+                <a href="/loading" class="cta-button">QUERO ADQUIRIR O MEU</a>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-main">
+            <div class="footer-section">
+                <h4>Editorias</h4>
+                <ul>
+                    <li><a href="#">Economia</a></li>
+                    <li><a href="#">Política</a></li>
+                    <li><a href="#">Tecnologia</a></li>
+                    <li><a href="#">Brasil</a></li>
+                    <li><a href="#">Mundo</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Serviços</h4>
+                <ul>
+                    <li><a href="#">Newsletter</a></li>
+                    <li><a href="#">Aplicativo</a></li>
+                    <li><a href="#">RSS</a></li>
+                    <li><a href="#">Anuncie</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Institucional</h4>
+                <ul>
+                    <li><a href="#">Quem Somos</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Privacidade</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Redes Sociais</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Portal de Notícias. Todos os direitos reservados.</p>
+            <p>Proibida a reprodução total ou parcial sem autorização.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dynamic date formatting - Estilo G1
+        function formatG1Date(date) {
+            const dia = String(date.getDate()).padStart(2, '0');
+            const mes = String(date.getMonth() + 1).padStart(2, '0');
+            const ano = date.getFullYear();
+            const horas = String(date.getHours()).padStart(2, '0');
+            const minutos = String(date.getMinutes()).padStart(2, '0');
+            return `${dia}/${mes}/${ano} ${horas}h${minutos}`;
+        }
+
+        function formatDateTime(date) {
+            const dias = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+            const meses = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+            
+            const diaSemana = dias[date.getDay()];
+            const dia = date.getDate();
+            const mes = meses[date.getMonth()];
+            const ano = date.getFullYear();
+            const horas = String(date.getHours()).padStart(2, '0');
+            const minutos = String(date.getMinutes()).padStart(2, '0');
+            
+            return `${diaSemana}, ${dia} de ${mes} de ${ano} | ${horas}h${minutos}`;
+        }
+
+        function formatImageDate(date) {
+            const dia = String(date.getDate()).padStart(2, '0');
+            const mes = String(date.getMonth() + 1).padStart(2, '0');
+            const ano = date.getFullYear();
+            return `${dia}/${mes}/${ano}`;
+        }
+
+        // Set dates
+        const now = new Date();
+        
+        // Header datetime
+        document.getElementById('current-datetime').textContent = formatDateTime(now);
+        
+        // Article date - Estilo G1
+        document.getElementById('article-date').textContent = formatG1Date(now);
+        
+        // Image dates
+        document.getElementById('image-date').textContent = formatImageDate(now);
+        document.getElementById('image-date-2').textContent = formatImageDate(now);
+        document.getElementById('image-date-3').textContent = formatImageDate(now);
+
+        // Update header time every minute
+        setInterval(() => {
+            const now = new Date();
+            document.getElementById('current-datetime').textContent = formatDateTime(now);
+        }, 60000);
+    </script>
+
+</body>
+</html>
